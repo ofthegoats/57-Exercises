@@ -2,20 +2,19 @@
 #include<stdlib.h>
 #include<string.h>
 
-#define BUFFERSIZE 10 //because that's an ok buffersize
+#define BUFFERSIZE 200
 
 int main(void){
-    char *string = calloc(1, 1), buffer[BUFFERSIZE];
-    printf("What is the input string? ");
-    while( fgets(buffer, BUFFERSIZE, stdin)){
-        string = realloc(string, strlen(string)+1+strlen(buffer));
-        strncat(string, buffer, BUFFERSIZE);
-        if(string[strlen(string)-1] == '\n') break;//LIKE a delimiter for newline
-    }
-    string[strlen(string)-1] = 0;//just getting rid of the newline
-    printf("%s is %lu characters long\n", string, strlen(string));
+        char string[BUFFERSIZE];
 
-    free(string);//free the memory allocated to holding the string
+        printf("What is the input string? ");
 
-    return 0;
+        fgets(string, BUFFERSIZE, stdin);
+
+	unsigned int len;
+	len = strlen(string);
+	string[len-1] = 0;//remove newline
+	printf("%s is %d characters long", string, len-1);
+
+        return 0;
 }
