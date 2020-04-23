@@ -1,5 +1,3 @@
--- learn more haskell and come back to this one, implement functions.
-
 main :: IO()
 
 main = do

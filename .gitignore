@@ -1,5 +1,5 @@
-a.out
-Golang
-main
-main.hi
-main.o
+main*
+!main.go
+!main.hs
+!main.py
+!main.c
