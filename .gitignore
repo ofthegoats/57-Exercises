@@ -1,4 +1,5 @@
 main*
+a.out
 !main.go
 !main.hs
 !main.py
