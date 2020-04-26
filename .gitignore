@@ -1,4 +1,5 @@
 main*
+*.code-workspace
 a.out
 !main.go
 !main.hs
