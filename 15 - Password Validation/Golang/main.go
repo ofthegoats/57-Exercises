@@ -1,8 +1,8 @@
 package main
 
 import (
-	"bufio"
-	"fmt"
+    "bufio"
+    "fmt"
     "os"
     "crypto/sha256"
     "encoding/hex"
