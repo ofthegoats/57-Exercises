@@ -3,19 +3,28 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"os"
+    "os"
+    "crypto/sha256"
+    "encoding/hex"
 )
+
+func hash(s string) string {
+    b := []byte(s)
+    shad := sha256.Sum256(b)
+    return hex.EncodeToString(shad[:32])
+}
 
 func validate(user string, pass string) bool {
 
-    // would be nice to store sha256 of password, but for now that is beyond my Go
     KNOWN := map[string]string {
-        "piokozi" : "password",
+        "piokozi" : "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8" ,
     }
+
+    hashed := hash(pass)
 
     if _, exists := KNOWN[user]; !exists { // user does not exist
         return false
-    } else if KNOWN[user] != pass { // wrong password
+    } else if KNOWN[user] != hashed { // wrong password
         return false
     } else { // correct details
         return true
