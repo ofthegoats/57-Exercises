@@ -1,7 +1,8 @@
 main*
 *.code-workspace
 a.out
-!main.go
-!main.hs
-!main.py
-!main.c
+!*.go
+!*.hs
+!*.py
+!*.c
+!*.cpp
