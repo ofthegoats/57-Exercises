@@ -31,21 +31,18 @@ func validate(user string, pass string) bool {
     }
 }
 
-func main() {
+func stdinput(o string) string {
+    fmt.Printf("%s", o)
     scanner := bufio.NewScanner(os.Stdin)
-
-    var username, password string
-    var successful bool
-
-    fmt.Print("username: ")
     scanner.Scan()
-    username = scanner.Text()
+    return scanner.Text()
+}
 
-    fmt.Print("password: ")
-    scanner.Scan()
-    password = scanner.Text()
+func main() {
+    username := stdinput("username: ")
+    password := stdinput("password: ")
 
-    successful = validate(username, password)
+    successful := validate(username, password)
 
     if successful {
         fmt.Println("Welcome!")
