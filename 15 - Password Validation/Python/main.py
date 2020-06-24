@@ -11,7 +11,7 @@ def validate(username, password):
 
     hashed = sha256(password.encode()).hexdigest()
 
-    if username not in KNOWN: # the user does not exist
+    if username not in KNOWN.keys(): # the user does not exist
         return False
     elif hashed != KNOWN[username]: # the password is wrong
         return False
