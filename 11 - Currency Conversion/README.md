@@ -2,6 +2,9 @@
 
 Write a program that converts currency.
 
+Use this formula:
+$$amount_{to} = \frac{amount_{from} \times rate_{from}}{rate_{to}}$$
+
 **EXAMPLE:**
 
 ```
