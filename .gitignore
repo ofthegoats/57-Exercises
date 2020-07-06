@@ -1,8 +1,8 @@
-main*
-*.code-workspace
-a.out
-!*.go
-!*.hs
+*
+!*.md
+!*.sh
 !*.py
+!*.go
 !*.c
 !*.cpp
+!*.hs
