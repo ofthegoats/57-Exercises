@@ -2,6 +2,9 @@
 #include <iostream>
 #include <memory>
 
+struct Node;
+std::unique_ptr<Node> buildtree();
+
 struct Node {
     std::string output;
     std::unique_ptr<Node> yes;
@@ -10,7 +13,8 @@ struct Node {
     Node(std::string o) : output(o) {};
 };
 
-template <int Size> bool strinarray(std::string str, std::string (&arr)[Size]) {
+template <int Size>
+bool strinarray(std::string str, const std::string (&arr)[Size]) {
     for (std::string i : arr) {
         if (str == i)
             return true;
@@ -20,8 +24,8 @@ template <int Size> bool strinarray(std::string str, std::string (&arr)[Size]) {
 
 bool getboolinput(std::string out) {
     while (true) {
-        std::string YES[] = {"yes", "y", "true", "t"};
-        std::string NO[]  = {"no", "n", "false", "f"};
+        const static std::string YES[] = {"yes", "y", "true", "t"};
+        const static std::string NO[]  = {"no", "n", "false", "f"};
         std::cout << out;  // let the input be formatting newlines etc
         std::string inp;
         std::cin >> inp;
@@ -37,6 +41,21 @@ bool getboolinput(std::string out) {
 }
 
 int main() {
+    auto tree = buildtree();
+
+    while (tree->yes && tree->no) {
+        bool answer = getboolinput(tree->output);
+        if (answer == true)
+            tree = std::move(tree->yes);
+        else
+            tree = std::move(tree->no);
+    }
+    std::cout << tree->output << std::endl;  // final output (solution)
+
+    return 0;
+}
+
+std::unique_ptr<Node> buildtree() {
     /* clang-format off */
     auto tree = std::make_unique<Node>(Node("Is the car silent when you turn the key? "));
     tree->yes = std::make_unique<Node>(Node("Are the battery terminals corroded? "));
@@ -50,15 +69,5 @@ int main() {
     tree->no->no->no->yes = std::make_unique<Node>(Node("Get it in for service."));
     tree->no->no->no->no = std::make_unique<Node>(Node("Check to ensure the choke is opening and closing."));
     /* clang-format on */
-
-    while (tree->yes && tree->no) {
-        bool answer = getboolinput(tree->output);
-        if (answer == true)
-            tree = std::move(tree->yes);
-        else
-            tree = std::move(tree->no);
-    }
-    std::cout << tree->output << std::endl;  // final output (solution)
-
-    return 0;
+    return tree;
 }
