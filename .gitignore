@@ -1,1 +1,15 @@
-a.out
+# Ignore everything
+*
+
+# Except these filetypes
+!*.md
+
+!*.py
+!*.cpp
+!*.c
+!*.go
+!*.sh
+!*.hs
+
+# EVEN IF THEY ARE IN SUBDIRECTORIES
+!*/

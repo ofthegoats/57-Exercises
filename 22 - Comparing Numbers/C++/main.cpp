@@ -1,8 +1,7 @@
-#include <iostream>
 #include <algorithm>
+#include <iostream>
 
-template <int Size>
-int highest_intarr(int (&arr)[Size]) {
+template <int Size> int highest_intarr(int (&arr)[Size]) {
     int h = arr[0]; // not checking because maxsize is a thing in main()
     for (int i : arr) {
         if (i > h)
@@ -11,18 +10,16 @@ int highest_intarr(int (&arr)[Size]) {
     return h;
 }
 
-template <int Size>
-bool hasduplicates_intarr(int (&arr)[Size]) {
-    std::sort(arr, arr+Size);
-    for (int i = 0; i < Size-1; i++) {
-        if (arr[i] == arr[i+1])
+template <int Size> bool hasduplicates_intarr(int (&arr)[Size]) {
+    std::sort(arr, arr + Size);
+    for (int i = 0; i < Size - 1; i++) {
+        if (arr[i] == arr[i + 1])
             return true;
     }
     return false;
 }
 
-int main()
-{
+int main() {
     constexpr int maxsize = 3;
     int numbers[maxsize];
 
@@ -35,7 +32,8 @@ int main()
         std::cout << "There are duplicates." << std::endl;
         return 0;
     } else {
-        std::cout << "The largest number is " << highest_intarr(numbers) << std::endl;
+        std::cout << "The largest number is " << highest_intarr(numbers)
+                  << std::endl;
     }
 
     return 0;
