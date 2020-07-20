@@ -36,7 +36,7 @@ def passwordValidator(password):
     pas_length = len(password)
 
     if pas_length < 8:  # must be one of the "weak" passwords
-        if has_letters ^ has_numbers ^ has_special:
+        if [has_letters, has_numbers, has_special].count(True) == 1:
             return 0  # very weak
         else:
             return 1  # weak
