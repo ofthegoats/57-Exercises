@@ -25,6 +25,10 @@ a really bad measure. Look into password entropy, which [xkcd](https://xkcd.com/
 describes to some extent, and use a tool like [this](https://howsecureismypassword.net/)
 to check actual password security.
 
+If you don't believe that this is a horrible set of rules to go about actual
+password strength, note that "password" is called a strong password under these
+rules.
+
 There is no password that can't be cracked, it's just a question of how long it
 takes to crack it. Though that amount of time could be longer than until the
 heat death of the universe. *That's* a strong password.
