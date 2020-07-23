@@ -3,6 +3,7 @@
 
 # Except these filetypes
 !*.md
+!LICENSE
 
 !*.py
 !*.cpp
