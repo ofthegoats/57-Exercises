@@ -9,7 +9,7 @@ The formula to use is
 
 $$ n = -\frac{1}{30} \times \frac
 {\log\left(1 + \frac{b}{p}\left(1 - \left(1 + i\right)^30\right)\right)}
-{\log\left(i + i\right)} $$
+{\log\left(1 + i\right)} $$
 
 Where:
 
