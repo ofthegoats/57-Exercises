@@ -21,7 +21,7 @@ def validid(ID):
     if bool(re.search(r"^[a-zA-Z]{2}-\d{4}$", ID)):
         return True
     else:
-        print("The ID must be numeric.")
+        print("The ID must follow this format: AA-1234.")
         return False
 
 
