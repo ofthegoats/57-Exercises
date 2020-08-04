@@ -38,7 +38,7 @@ bool check_valid_zip(std::string s)
     if (std::regex_search(s, std::regex("(^\\d+$)"))) {
         return true;
     } else {
-        std::cout << "ZIP code must be numberic." << std::endl;
+        std::cout << "ZIP code must be numeric." << std::endl;
         return false;
     }
 }
@@ -49,7 +49,7 @@ bool check_valid_id(std::string s)
         std::cout << "Employee ID must be filled in." << std::endl;
         return false;
     }
-    if (std::regex_search(s, std::regex("^[a-zA-Z]"))) {
+    if (std::regex_search(s, std::regex("^[a-zA-Z]{2}-\\d{4}$"))) {
         return true;
     } else {
         std::cout << "The ID must follow this format: AA-1234." << std::endl;
