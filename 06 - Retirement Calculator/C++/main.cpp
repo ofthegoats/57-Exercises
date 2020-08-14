@@ -1,12 +1,11 @@
-#include <iostream>
 #include <ctime>
+#include <iostream>
 
 using namespace std;
 
-int main(void)
-{
+int main(void) {
     time_t t = time(0);
-    tm *now = localtime(&t);
+    tm *now  = localtime(&t);
 
     int current_age, retire_age = 0;
 
@@ -21,8 +20,10 @@ int main(void)
         cout << "You can already retire!" << endl;
         return 0;
     } else {
-        cout << "You have " << years_left << " years left until you can retire." << endl;
-        cout << "It's " << (now->tm_year) + 1900 << ", so you can retire in " << (now->tm_year) + 1900 + years_left << "." << endl;
+        cout << "You have " << years_left << " years left until you can retire."
+             << endl;
+        cout << "It's " << (now->tm_year) + 1900 << ", so you can retire in "
+             << (now->tm_year) + 1900 + years_left << "." << endl;
         return 0;
     }
 }
